@@ -15,9 +15,9 @@ export default function Footer() {
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
 
       <div className="w-full max-w-2xl grid grid-cols-1 pb-16 sm:grid-cols-3">
-        <ExternalLink href="https://github.com/leerob">Discord</ExternalLink>
-        <ExternalLink href="https://github.com/leerob">GitHub</ExternalLink>
-        <ExternalLink href="https://twitter.com/leeerob">
+        <ExternalLink href="https://discord.gg/kWb4EzBN">Discord</ExternalLink>
+        <ExternalLink href="https://github.com/nkrishang">GitHub</ExternalLink>
+        <ExternalLink href="https://twitter.com/MonkeyMeaning">
           Twitter
         </ExternalLink>
       </div>

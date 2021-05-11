@@ -2,8 +2,6 @@ import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
 import Container from '@/components/Container';
-import Subscribe from '@/components/Subscribe';
-import ViewCounter from '@/components/ViewCounter';
 
 const editUrl = (slug) =>
   `https://github.com/leerob/leerob.io/edit/main/data/blog/${slug}.mdx`;
@@ -36,38 +34,16 @@ export default function BlogLayout({ children, frontMatter }) {
             />
             <p className="text-sm text-gray-700 dark:text-gray-300 ml-2">
               {frontMatter.by}
-              {'Lee Robinson / '}
+              {'Krishang Nadgauda / '}
               {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
             </p>
           </div>
           <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
             {frontMatter.readingTime.text}
-            {` • `}
-            <ViewCounter slug={frontMatter.slug} />
           </p>
         </div>
         <div className="prose dark:prose-dark max-w-none w-full">
           {children}
-        </div>
-        <div className="mt-8">
-          <Subscribe />
-        </div>
-        <div className="text-sm text-gray-700 dark:text-gray-300">
-          <a
-            href={discussUrl(frontMatter.slug)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {'Discuss on Twitter'}
-          </a>
-          {` • `}
-          <a
-            href={editUrl(frontMatter.slug)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {'Edit on GitHub'}
-          </a>
         </div>
       </article>
     </Container>

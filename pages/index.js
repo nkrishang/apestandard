@@ -17,8 +17,8 @@ export default function Home({ posts }) {
 
   return (
     <Container
-      title="Blog – Lee Robinson"
-      description="Thoughts on the software industry, programming, tech, videography, music, and my personal life."
+      title="The Ape Standard"
+      description="Explorations in the crypto world."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">

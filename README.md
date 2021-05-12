@@ -1,17 +1,9 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fleerob%2Fleerob.io)
+# The Ape Standard
 
-# leerob.io
+*The Ape Standard* is my portfolio of technical and philosophical explorations in the crypto world.
 
-My portfolio has transformed over the years - from a static HTML site, to Jekyll, to Hugo, and finally to Next.js/React/MDX. My personal slice of the internet provides a platform for my writing and to showcase my latest work.
-
-If you want to understand this repo better, I did a [one-hour live stream](https://www.youtube.com/watch?v=xXQsF0q8KUg) walking through the codebase.
-
-## Overview
-
-- `pages/api/*` - [API routes](https://nextjs.org/docs/api-routes/introduction) powering [`/dashboard`](https://leerob.io/dashboard), newsletter subscription, and post views.
-- `pages/blog/*` - Static pre-rendered blog pages using [MDX](https://github.com/mdx-js/mdx).
-- `pages/dashboard` - [Personal dashboard](https://leerob.io/dashboard) containing metrics like sales, views, and subscribers.
-- `pages/*` - All other static pages.
+The website is a fork of [leerob.io](https://leerob.io/). I'll be personalizing it along the way. Here's a snippet from the
+readme of the [leerob.io repository.](https://github.com/leerob/leerob.io)
 
 ## Running Locally
 

@@ -3,13 +3,6 @@ import { parseISO, format } from 'date-fns';
 
 import Container from '@/components/Container';
 
-const editUrl = (slug) =>
-  `https://github.com/leerob/leerob.io/edit/main/data/blog/${slug}.mdx`;
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://leerob.io/blog/${slug}`
-  )}`;
-
 export default function BlogLayout({ children, frontMatter }) {
   return (
     <Container

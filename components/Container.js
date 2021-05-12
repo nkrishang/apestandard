@@ -18,7 +18,7 @@ export default function Container(props) {
   const meta = {
     title: 'The Ape Standard.',
     description: `Explorations in the crypto world.`,
-    image: 'https://leerob.io/static/images/banner.png',
+    image: 'https://leerob.io/static/images/banner.jpg',
     type: 'website',
     ...customMeta
   };

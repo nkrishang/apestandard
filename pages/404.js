@@ -19,7 +19,7 @@ export default function NotFound() {
             >
               internet
             </a>
-            &nbsp;).
+            ).
           </p>
         </div>
         <Link href="/">

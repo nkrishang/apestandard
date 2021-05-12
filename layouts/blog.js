@@ -6,9 +6,9 @@ import Container from '@/components/Container';
 export default function BlogLayout({ children, frontMatter }) {
   return (
     <Container
-      title={`${frontMatter.title} – Lee Robinson`}
+      title={`${frontMatter.title} – The Ape Standard`}
       description={frontMatter.summary}
-      image={`https://leerob.io${frontMatter.image}`}
+      image={`https://apestandard.com${frontMatter.image}`}
       date={new Date(frontMatter.publishedAt).toISOString()}
       type="article"
     >
@@ -19,7 +19,7 @@ export default function BlogLayout({ children, frontMatter }) {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
           <div className="flex items-center">
             <Image
-              alt="Lee Robinson"
+              alt="Krishang Nadgauda"
               height={24}
               width={24}
               src="/avatar.jpg"

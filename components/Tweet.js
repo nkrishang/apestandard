@@ -8,6 +8,8 @@ import { TwitterTweetEmbed } from 'react-twitter-embed';
  */
 export default function Tweet({ tweetId }) {
   return (
-    <TwitterTweetEmbed tweetId={tweetId}/>
+    <>
+        <TwitterTweetEmbed tweetId={tweetId}/>
+    </>
   )
 }

@@ -1,4 +1,4 @@
-import { TwitterTweetEmbed } from 'react-twitter-embed';
+import TweetEmbed from 'react-tweet-embed'
 
 /**
  * Supports plain text, images, quote tweets.
@@ -9,7 +9,7 @@ import { TwitterTweetEmbed } from 'react-twitter-embed';
 export default function Tweet({ tweetId }) {
   return (
     <>
-        <TwitterTweetEmbed tweetId={tweetId}/>
+        <TweetEmbed id={tweetId}/>
     </>
   )
 }

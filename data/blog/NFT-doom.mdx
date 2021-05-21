@@ -1,0 +1,79 @@
+---
+title: 'NFT doom — off-chain execution of on-chain agreements.'
+publishedAt: '2021-05-20'
+summary: "This is somewhat of an on-chain law — any piece of an on-chain process that requires trusting the off chain execution of something, usually has a punishable counterpart on chain. NFTs, even right this moment, break this law. "
+image: '/static/images/NFT-doom/crypto-punks-banner.png'
+---
+
+<Image src="/static/images/NFT-doom/crypto-punks-banner.png" height={240} width={800}/>
+
+Introducing off chain entities to the on-chain world is a classic challenge in crypto.
+
+An explicit instance of this challenge is framed as the '[oracle problem](https://vitalik.ca/general/2019/11/22/progress.html#numbersixteen)' 
+— the problem of introducing reliable and honest, real world data onto our on-chain, distributed database. Oracles are often associated
+with price feeds (e.g. how much Ether or an ERC 20 token costs in an off chain denomination like USD) or with information that people 
+bet on in on-chain prediction markets.
+
+In the case of these oracles, what we witness is, in some sense, 'on chain executions informed by off chain data'. The off chain data 
+introduced by oracles plays a role in determining what smart contract code will be executed upon its introduction on chain. Take, for 
+example, the Augur prediction market for the 2020 US presidential election results. A participant in this prediction market 
+participates by locking their bet money into a smart contract. Whether that participant loses the locked money, or has the money 
+plus winnings sent to their ethereum account is determined by off chain data — the relevant fact about the election results in question.
+
+It's simple to see why the integrity of off chain data is critical. You can't revert on-chain transactions whether or not it was 
+dishonest off chain data that informed the transaction. In this way, when it comes to oracles like price feeds or the ones propping 
+up prediction markets, we witness 'on chain executions informed by off chain data'.
+
+In some sense, the whole idea of introducing off chain data to the on-chain world feels contra to the on-chain ethos. However, 
+decentralized oracles that maintain some level of that on-chain ethos have popped up over time. And so, the vulnerability of having 
+to trust that the relevant off chain data is honest, is not so critical. The crypto ecosystem has managed to pull off on chain 
+executions informed by off chain data without abandoning, at least wholly, the on-chain ethos.
+
+All of that said, there's another kind of off chain data on the horizon whose trust requirements are somewhat uncomfortable. 
+I'm talking about NFTs.
+
+NFTs, in a way, turn the oracle model of 'on chain executions informed by off chain data' upside down. What we witnessed throughout 
+the NFT craze of early '21 is 'off chain executions of on chain agreements'. This is a phenomenon that, I argue, will only continue 
+to grow more significant, and make everyone's inner crypto soul — the one yearning for true decentralization — feel uncomfortable.
+
+<Image src="/static/images/NFT-doom/nft-diagram.png" height={500} width={800}/>
+
+NFTs are perhaps one of the most general concepts to have emerged in crypto. Let's forget the "Non fungible" part for a minute — 
+that's not the most exciting part about NFTs, regardless of all the press it gets. One of the core, and most exciting features of 
+an NFT is, simply, that it "tokenizes" something. On chain, an NFT represents an off chain object. An NFT represents an off chain 
+object in the form of an agreement. When you buy an NFT, what you buy is a certain claim on the off chain object it represents. 
+Generally, this claim is a claim of ownership. 
+
+ Let's consider an example. Beeple sold an NFT for $69 million USD to Metakovan. The NFT in question is *not* just the artwork, which 
+ is, in some sense, the display picture of the NFT. The NFT is an agreement that the person recognized as the owner of the NFT 
+ (Metakovan) by the creator of the NFT (Beeple), shall have a claim of ownership on the NFT's relevant off chain object (the artwork 
+ jpeg). 
+
+**Note:** I won't go so far as to start defining "ownership" and so on — we'll accept these things as primitives for this post.
+
+Tokenizing things like artworks as an NFT is, as you might've expected me to say next, just the beginning. It is likely a 
+matter of time that, like artwork, things from concert tickets to property rights get tokenized as NFTs. This is where things get 
+interesting and even more uncomfortable than the multi million dollar NFT doomer headlines.
+
+With the introduction of tokenized concert tickets, property rights and so on, we'll witness, in its explicit form, people honoring on 
+chain agreements, off chain. What's key, here, is that the place of execution is off chain, unlike with oracles, where the place of 
+execution is on chain. 
+
+This makes a world of difference. When the place of execution is on chain, the execution is trustless to the extent that the off 
+chain data it depends on is honest. Thanks to the existence of decentralized oracles like Chainlink, we may deem this to be acceptable, 
+in the context of the on-chain ethos. However, when the place of execution is off chain, it's a different story.
+
+There's a reason we have overcollateralized loans in the DeFi ecosystem. This is somewhat of an on-chain law — any piece of an on-chain 
+process that requires trusting the off chain execution of something, usually has a punishable counterpart on chain. NFTs, even right 
+this moment, break this law. A concert ticket NFT means nothing (except possibly the 'exclusivity' of the ticket) if there is no 
+concert. Certainly, a tokenized legal agreement means nothing if it isn't legally enforceable off chain. In the case of artworks, 
+you better hope the artist hasn't tokenized the artwork on a duplicate contract, making it unclear which one's cannon. 
+
+Make of this what you will. Maybe this means that what the NFT ecosystem needs the most isn't pixelated humans and dogs, but legal 
+clarity or restructuring. Perhaps the host of uncomfortable motifs around NFTs result in a new NFT EIP. Regardless of how it plays 
+out, and whether or not we ever see another $69 million dollar NFT sale, the core concept of tokenizing off chain objects is here to 
+stay. We better start converging on a way to handle this, or converge on the idea that we're all okay with not converging on a 
+standard for handling it all.
+
+The week of the crash is a nice time to have discussions like these. As the sage Andre Cronje says — Bull run, bear development. 
+Bear run, bull development.

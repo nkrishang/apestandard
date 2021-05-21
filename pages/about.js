@@ -9,7 +9,7 @@ export default function About() {
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
           <p>
-            Hey there 👋 I'm Krishang - philosophy undergrad and founding engineer at&nbsp;
+            Hey there 👋 I'm Krishang - NYU Philosophy alum and founding engineer at&nbsp;
             <a
               href="https://nftlabs.co"
               target="_blank"

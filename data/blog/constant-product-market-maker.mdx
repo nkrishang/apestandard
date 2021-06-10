@@ -1,0 +1,83 @@
+---
+title: 'Constant Product Market Maker: making Uniswap pricing intuitive.'
+publishedAt: '2021-06-10'
+summary: "This article will attempt to make the constant product market maker function intuitive, the math that Uniswap uses to price its assets, without defaulting to jargon or formulae like `x * y = k` without explanation."
+image: '/static/images/constant-product-market-maker/uniswap-swap.jpg'
+---
+
+<Image src="/static/images/constant-product-market-maker/uniswap-swap.jpg" height={314} width={800}/>
+
+This article is a work in progress. Math is hard and DeFi can be confusing. If you find any errors, feel free to contact me at 
+krishang@nftlabs.co with a correction.
+
+This article is Part 1 of a three part series on constant function market makers, mentioned in this three liner 
+[Zapper article](https://zapper.crunch.help/defi-investing-101/uniswap-vs-balancer-vs-curve).
+
+Decentralized exchanges (DEX'es) lie at the heart of DeFi. A core piece of each DEX is the math that regulates its asset swaps. 
+For instance, swapping a given amount of USDC for DAI on Uniswap, compared to Curve, is not the same. This article will attempt 
+to make the constant product market maker function intuitive, the math that Uniswap uses to price its assets, without defaulting to 
+jargon or formulae like `x * y = k` without explanation.
+
+This article is not an explanation of how DEX'es or Automated Market Makers work in general. Here, I'll primarily discuss a 
+piece of how a DEX works — its market making function. The discussion is primarily centered around Uniswap's constant product 
+market maker function.
+
+## Constant product market maker
+
+If you're familiar with Uniswap, you've seen this equation `x * y = k` thrown around.
+
+The equation `x * y = k` governs asset swaps on Uniswap, where `x` and `y` represent the quantities of two different assets in a 
+liquidity pool, and `k` represents a value called the *constant product invariant*. The given equation governs the price of a given 
+amount of one asset in the liquidity pool, in terms of the other asset. 
+
+Consider a liquidity pool consisting of `Token A` and `Token B`. We can calculate the above mentioned 'constant product invariant' 
+or `k` as `k = (Amt. of Token A in pool) * (Amt. Token B in pool)`.
+
+**Pre-trade:** <Latex>$k = Amt. A \times Amt. B$</Latex>
+
+Given the current state of the pool, we want to find out how much a given amount of `Token B` costs, in terms of `Token A`. Now, 
+swapping `Token A` for `Token B` changes the composition of the liquidity pool. Our governing equation `x * y = k` dictates that 
+the value of the invariant `k` must remain constant, regardless of the composition of the pool post-trade.
+
+**Post-trade:** <Latex displayMode={true}>$k = (Amt. A + x) \times (Amt. B - y)$</Latex>
+
+Here, `x` is the amount of `Token A` we'd have to pay in exchange for `y` amount of `Token B`. Now, Uniswap takes a protocol fee of 
+0.3% for every trade. So, when you pay `x` amount of `Token A` in exchange for some amount of `Token B`, what you get in return is 
+`0.997x Token A` worth of `Token B`.
+
+**Pricing the trade:** <Latex displayMode={true}>$k = (Amt. A + 0.997x) \times (Amt. B - y)$</Latex>
+
+Again, we want to know the price of a given amount of `Token B` in terms of `Token A` i.e. the amount of `Token A` (`x`) 
+you would need to add to the liquidity pool, to receive `y` amount of `Token B`. Therefore, we want to rearrange the equation labelled 
+as 'Pricing the trade' to be able to calculate `x` (how much `Token A` you need to pay) as a function of `y` (how much `Token B` 
+you want).
+
+**Price of `Token B` in terms of `Token A`:**
+<Latex displayMode={true}>{'$f(y) = \\frac{1}{0.997} \\times (\\frac{k}{Amt. B - y} - Amt. A)$'}</Latex>
+
+(Similarly) **Price of `Token A` in terms of `Token B`:**
+<Latex displayMode={true}>{'$f(y) = \\frac{1}{0.997} \\times (\\frac{k}{Amt. A - y} - Amt. B)$'}</Latex>
+
+If we are to generalize the equations further, by not fixing the fee at 0.3% like Uniswap —
+
+**Price of `Token B` in terms of `Token A`:**
+<Latex displayMode={true}>{'$f(y) = \\frac{1}{1 - fee} \\times (\\frac{k}{Amt. B - y} - Amt. A)$'}</Latex>
+
+(Similarly) **Price of `Token A` in terms of `Token B`:**
+<Latex displayMode={true}>{'$f(y) = \\frac{1}{1 - fee} \\times (\\frac{k}{Amt. A - y} - Amt. B)$'}</Latex>
+
+We now have a general equation that we can use to find the price of one asset in a liquidity pool, in terms of the other asset in the 
+liquidity pool. Let's work through an example.
+
+Consider a Uniswap liquidity pool containing 100 ETH and 1000 EXAMPLE (an ERC20 token). Here, `k = 100 * 1000 = 10**5`. We calculate 
+the price of 1 ETH in terms of EXAMPLE as —
+
+<Latex displayMode={true}>{'Price of 1 ETH $= \\frac{1}{0.997} \\times (\\frac{10^5}{100-1} - 1000) = 10.13$ EXAMPLE'}</Latex>
+
+Note that though `k` is supposed to be an "invariant" i.e. considered as a constant when pricing one asset in terms of the other, 
+`k` actually increases a little after every trade, since we account for the 0.3% fee in our equation for pricing the assets. 
+
+In our example, the value of `k` pre-trade is `10**5` whereas the value of `k` post-trade is around `99 * 1010.13 = 100,002.87`. 
+If we would charge no fees, the price of 1 ETH in terms of EXAMPLE would be around: <Latex displayMode={true}>$(\frac{10^5}{100-1} - 1000) = 10.10$ EXAMPLE</Latex> 
+instead, maintaining `k` at `10**5`. The increase in the size of the liquidity pool (as reflected by the increase in `k`) represents 
+the payout to the pool's liquidity providers.

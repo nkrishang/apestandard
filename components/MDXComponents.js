@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Tweet from '@/components/Tweet';
+import Latex from 'react-latex-next'
+import 'katex/dist/katex.min.css'
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -20,7 +22,8 @@ const CustomLink = (props) => {
 const MDXComponents = {
   Image,
   a: CustomLink,
-  Tweet
+  Tweet,
+  Latex
 };
 
 export default MDXComponents;

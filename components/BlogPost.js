@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
-const BlogPost = ({ title, summary, slug }) => {
+const BlogPost = ({ title, summary, slug, draft }) => {
 
   return (
     <Link href={`/blog/${slug}`}>
@@ -10,9 +11,16 @@ const BlogPost = ({ title, summary, slug }) => {
             <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
               {title}
             </h4>
-            <p className="text-gray-400 text-left md:text-right w-32 mb-4 md:mb-0">
-              DRAFT
-            </p>
+            {
+                draft
+                ? (
+                    <p className="text-gray-400 text-left md:text-right w-32 mb-4 md:mb-0">
+                        DRAFT
+                    </p>
+                )
+                : ""
+            }
+            
           </div>
           <p className="text-gray-600 dark:text-gray-400">{summary}</p>
         </div>

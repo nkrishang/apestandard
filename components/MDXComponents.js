@@ -42,13 +42,22 @@ const Wordloops = () => {
     )
 }
 
+const Video = () => {
+    return (
+        // <Center>
+            <video src={"/static/images/multichain-future/multi-chain-future-banner.mp4"} autoPlay loop />
+        // </Center>
+    )
+}
+
 const MDXComponents = {
   Image,
   a: CustomLink,
   Tweet,
   Latex,
   Center,
-  Wordloops
+  Wordloops,
+  Video
 };
 
 export default MDXComponents;

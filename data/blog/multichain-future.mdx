@@ -1,0 +1,91 @@
+---
+title: "A Multi Chain Future: chains as modules."
+publishedAt: "2021-08-05"
+summary: "Protocol modules across chains instead of protocol copies across chains."
+image: "/static/images/multichain-future/multichain-future-banner.jpg"
+draft: false
+---
+
+<Wordloops />
+
+<Center>
+    <Image src="/static/images/multichain-future/multichain-future-banner.jpg" height={326} width={200}/>
+</Center>
+
+Ethereum is an existing giant, both, in terms of its grasp on the market, and the masses. It is an 'infinite machine', the 'world computer' — a blockchain with 
+a Turing complete language to build any imaginable application on it.
+
+That said, Ethereum comes with a given set of constraints that favor the operation of some applications over others.
+
+*Enter —* a tsunami of feature focused blockchains.
+
+The number of blockchains in production continues to increase, year by year.
+
+Each new blockchain fronts as focused on delivering what existing giants haven't, can't or won't. A few are even explicit about sacrificing some 'orthodox' blockchain 
+philosophy to serve a specific feature of blockchains really well.
+
+These blockchains are set on unclogging a whole new category of applications by picking something a giant like Ethereum doesn't do well, and doing that thing really, 
+really well.
+
+Let's discuss using these feature focused blockchains as modules for a main chain like Ethereum. 
+
+Bootstrapping a blockchain is hard. In some sense, blockchains are implemented with a built-in Lindy effect. That's why for most of the general public, all of 
+crypto is pretty much "Bitcoin" and "Ethereum".
+
+In that spirit, we can take the categories of applications the feature focused blockchains unlock, and bring them to Ethereum.
+
+Smart contracts on Ethereum can leverage these feature focused blockchains by communicating with them. One must be able to trigger a read or write operation on a 
+feature focused blockchain, by calling a function on the main chain, Ethereum, and vice versa.
+
+This is accomplished by 'passing messages' between chains.
+
+## Cross chain communication: Chainlink VRF
+
+Here's an example of cross chain communication where ethereum smart contracts leverage a feature focused blockchain to unlock an entire category of applications on 
+ethereum.
+
+[GitHub - nkrishang/cross-chain-vrf: Use Chainlink VRF on Polygon (Matic) for contracts on Ethereum mainnet.](https://github.com/nkrishang/cross-chain-vrf)
+
+[Chainlink VRF](https://docs.chain.link/docs/chainlink-vrf/) is a random number generator that operates on a request ←→ response model, where a smart contract can 
+request a random number from the Chainlink VRF system in one transaction, and the Chainlink VRF system fulfills that request in a subsequent transaction with a random 
+number.
+
+Generating a random number costs gas. Chainlink VRF aims to be a self-sustainable service, so it collects a fee from the contract requesting a random number, which 
+is supposed to pay for the gas used in generating the random number.
+
+It is expensive to use Chainlink VRF on Ethereum mainnet. A contract is charged 2 LINK (i.e. ~$40 at current prices) in fees, on every random number request. This 
+renders Chainlink VRF impractical to use, despite it being a reliable solution to [a long standing problem of generating or using truly random values on-chain](https://github.com/randao/randao#random-number-in-programming-is-very-important).
+
+So here's the problem at hand — Chainlink VRF is great, but expensive to use. Why is it expensive to use? Generating a random number is estimated to take up to 2 
+LINK of value in gas, which is then slated as the fee to pay to use Chainlink VRF.
+
+Here's a solution — off load the generation of the random number to a blockchain where it is inexpensive to generate the random number. 
+
+In comes Polygon — a blockchain focused on being gas cheap. Generating a random number on Polygon is inexpensive. Chainlink VRF charges a 0.0001 LINK fee, which 
+pays for the gas cost of generating a random number on Polygon, as opposed to the 2 LINK fee on Ethereum mainnet.
+
+Here's what cross chain communication makes possible — a contract on Ethereum can request a random number from Chainlink VRF on Polygon in one transaction, and 
+Chainlink VRF on Polygon can relay the random number generated to the requestor contract on Ethereum mainnet, in a subsequent transaction.
+
+Does this make consuming randomness less expensive on Ethereum mainnet? Yes — it cuts the cost by more than half. Even though that's still not as dirt cheap as 
+consuming randomness on Polygon, it's a significant drop in costs.
+
+Of course, there are limits to how cheap these cross chain operations can be. A call to another smart contract on Ethereum costs 21,000 gas, and cross chain 
+operations, on Ethereum's end, generally are two step processes — sending a request, and pulling back a response. This gives us a (less than) base gas cost for 
+cross chain operations, which is 42000 gas: ~$2.5 at avg. prices.
+
+Directionally, using feature-focused chains as modules for contracts on some other main chain, like Ethereum mainnet ,unlocks a new category of smart contracts 
+to exist on the main chain.
+
+In the case of Ethereum mainnet, till date, this means smart contract designs that involve heavy computation can off load computation onto gas-cheap chains.
+
+### Modules across chains instead of clones across chains
+
+Some projects on Ethereum genuinely benefit from deploying their clones on feature focused networks. For instance, a DEX like Uniswap genuinely benefits from 
+deploying clones on gas cheap chains like [Arbitrum](https://offchain.medium.com/introducing-arbitrum-one-our-mainet-beta-ed0e9b63b435) or [Optimism](https://optimism.io/). 
+
+That's because the job of Uniswap is to move fungible tokens as quickly and efficiently as possible, and leveraging cross chain communication — as it is now — like 
+in the case of the cross chain Chainlink VRF, would perhaps only slow things down.
+
+That said, as cross chain communication continues to improve, I wonder if we may see a single canon implementation of a major protocol spread across different chains, 
+rather than having copies of an implementation, each living in a different chain.

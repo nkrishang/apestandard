@@ -22,7 +22,7 @@ export default function About() {
             Here at The Ape Standard, I write about my technical and philosophical
             explorations, largely in the crypto world. I am currently building&nbsp;
             <a
-              href="https://nkrishang.gitbook.io/pack-protocol/"
+              href="https://docs.packprotocol.com"
               target="_blank"
               rel="noopener noreferrer"
             >

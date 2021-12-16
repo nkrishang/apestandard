@@ -18,15 +18,15 @@ export default function Home({ posts }) {
   return (
     <Container
       title="The Ape Standard"
-      description="Explorations in the crypto world."
+      description="Explorations in the web3 world."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           {`The Ape Standard.`}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">          
-          {`Hi, I'm Krishang. I write smart contract and web3 code at NFT Labs. Here, you'll find my technical
-            and philosophical explorations, largely in the crypto world.`}
+          {`Hi, I'm Krishang. I write smart contracts at thirdweb. Here, you'll find my technical
+            and philosophical explorations, largely in the web3 world.`}
         </p>
         <div className="relative w-full mb-4">
           <input

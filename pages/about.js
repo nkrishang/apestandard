@@ -15,16 +15,28 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              thirdweb.
-            </a>            
+              thirdweb
+            </a>
+            .      
           </p>
           <p>
-            Here at The Ape Standard, I write about my technical and philosophical
-            explorations, largely in the web3 world.
+            I was set on studying philosophical logic and set theory, until I read&nbsp;
+            <a
+              href="https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              'The Meaning of Decentralization'
+            </a>
+            {' '}in the begining of the COVID pandemic. Soon enough, I rushed out of college to go build a whole new 
+            web with some kickass builders.
           </p>
           <p>
             I grew up in Mumbai, India, and now live in Brooklyn, NY. I am always down to chat about philosophy, math, crypto,
-            and the other ten thousand things that interest me. {`You can contact me at krishang@thirdweb.com or drop by on twitter at`}&nbsp;
+            and the other ten thousand things that interest me.
+          </p>
+          <p>
+            {`You can contact me at krishang@thirdweb.com or drop by on twitter at`}&nbsp;
             <a
               href="https://twitter.com/MonkeyMeaning"
               target="_blank"
@@ -32,7 +44,7 @@ export default function About() {
             >
               MonkeyMeaning.
             </a>
-          </p>       
+          </p>  
         </div>
       </div>
     </Container>

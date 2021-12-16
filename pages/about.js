@@ -11,27 +11,20 @@ export default function About() {
           <p>
             Hey there 👋 I'm Krishang - NYU Philosophy alum and founding engineer at&nbsp;
             <a
-              href="https://nftlabs.co"
+              href="https://thirdweb.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              NFT labs.
+              thirdweb.
             </a>            
           </p>
           <p>
             Here at The Ape Standard, I write about my technical and philosophical
-            explorations, largely in the crypto world. I am currently building&nbsp;
-            <a
-              href="https://docs.packprotocol.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {'$PACK Protocol.'}
-            </a>
+            explorations, largely in the web3 world.
           </p>
           <p>
             I grew up in Mumbai, India, and now live in Brooklyn, NY. I am always down to chat about philosophy, math, crypto,
-            and the other ten thousand things that interest me. {`You can contact me at krishang@nftlabs.co or drop by on twitter at`}&nbsp;
+            and the other ten thousand things that interest me. {`You can contact me at krishang@thirdweb.com or drop by on twitter at`}&nbsp;
             <a
               href="https://twitter.com/MonkeyMeaning"
               target="_blank"
@@ -39,18 +32,7 @@ export default function About() {
             >
               MonkeyMeaning.
             </a>
-          </p>
-
-          <p>
-            {`I'm but an ape; this website's a fork of`}&nbsp;
-            <a
-              href="https://leerob.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              leerob.io.
-            </a>
-          </p>          
+          </p>       
         </div>
       </div>
     </Container>
